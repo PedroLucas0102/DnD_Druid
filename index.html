@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Bestas DnD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🐺🐆 Simulador de Bestas DnD</h1>
+
+    <label>Besta:</label>
+    <select id="besta">
+        <option value="lobo">Lobo</option>
+        <option value="pantera">Pantera</option>
+    </select>
+
+    <div id="ataquesPantera" style="display:none;">
+        <label>Ataque da Pantera:</label>
+        <select id="ataquePantera">
+            <option value="garras">Garras (1d4 + 2)</option>
+            <option value="mordida">Mordida (1d6 + 2)</option>
+        </select>
+    </div>
+
+    <br><br>
+
+    <label><input type="checkbox" id="vantagem"> Vantagem no ataque</label><br>
+    <label><input type="checkbox" id="alvoCaido"> Alvo está caído</label><br><br>
+    <label>Quantidade de Bestas:</label><input type="number" id="quantidade" value="1" min="1" max="20"><br><br>
+
+
+    <button onclick="atacar()">ATACAR!</button>
+
+    <h2>Resultado</h2>
+    <pre id="resultado"></pre>
+
+    <script src="main.js"></script>
+</body>
+</html>
