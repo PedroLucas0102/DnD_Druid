@@ -74,6 +74,18 @@ const BESTAS = {
                 bonusAcerto: 4
             }
         }
+    },
+    cobraVoadora: {
+        nome: "Cobra Voadora",
+        ataques: {
+            mordida: {
+                nome: "Mordida",
+                dados: 3,        // 3d4 de veneno
+                lados: 4,
+                bonusDano: 1,    // 1 de dano perfurante fixo
+                bonusAcerto: 6
+            }
+        }
     }
 };
 
@@ -91,13 +103,14 @@ function atacar() {
     let besta = BESTAS[tipoBesta];
 
     for (let i = 1; i <= qtd; i++) {
-
         let ataque;
 
         if (tipoBesta === "lobo") {
             ataque = besta.ataques.mordida;
-        } else {
+        } else if (tipoBesta === "pantera") {
             ataque = besta.ataques[ataqueEscolhido];
+        } else if (tipoBesta === "cobraVoadora") {
+            ataque = besta.ataques.mordida;
         }
 
         log.push(`\n${besta.nome} (${i}) usa ${ataque.nome}! (+${ataque.bonusAcerto} para acertar)`);
